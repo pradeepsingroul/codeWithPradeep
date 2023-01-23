@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean id="student" class="com.xml.Model.Student" >
+	<!-- when we are using setter injection than we use <property name=""></property> tag -->
+		<property name="roll" value="120" />
+		<property name="name" value="pradeep" />
+		<property name="marks" value="900" />
+	
+	 </bean>
+	 
+	 <bean id="student1" class="com.xml.Model.Student" >
+	
+		<property name="roll" value="130" />
+		<property name="name" value="Sanjay" />
+		<property name="marks" value="920" />
+	
+	 </bean>
+	 
+	 <bean id="student3" class="com.xml.Model.Student">
+	<!-- when we use cunstructor injection dependency ijenjection -->
+	 	<constructor-arg name="roll" value="150" />
+	 	<constructor-arg name="name" value="mayank dwidesi" />
+	 	<constructor-arg name="marks" value="940" />
+	 		 
+	 </bean>
+	
+	
+	
+</beans>
