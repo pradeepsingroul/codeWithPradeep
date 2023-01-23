@@ -1,4 +1,4 @@
-package com.mapping.Utility;
+package OneToOne.Utility;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

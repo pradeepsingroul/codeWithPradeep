@@ -1,4 +1,4 @@
-package com.mapping.Model;
+package OneToOne.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

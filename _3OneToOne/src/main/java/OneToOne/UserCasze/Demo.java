@@ -1,12 +1,13 @@
-package com.mapping.UserCasze;
+package OneToOne.UserCasze;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.swing.text.Utilities;
 
-import com.mapping.Model.Department;
-import com.mapping.Model.Employee;
-import com.mapping.Utility.Utility;
+import OneToOne.Model.Department;
+import OneToOne.Model.Employee;
+import OneToOne.Utility.Utility;
+
 
 public class Demo {
 	

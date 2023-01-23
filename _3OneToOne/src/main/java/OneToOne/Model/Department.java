@@ -1,4 +1,4 @@
-package com.mapping.Model;
+package OneToOne.Model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
