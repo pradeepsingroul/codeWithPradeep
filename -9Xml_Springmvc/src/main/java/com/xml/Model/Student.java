@@ -6,6 +6,24 @@ public class Student {
 	private int roll;
 	private String name;
 	private int marks;
+	
+	private Address address;
+	
+	
+	
+	public Student(int roll, String name, int marks, Address address) {
+		super();
+		this.roll = roll;
+		this.name = name;
+		this.marks = marks;
+		this.address = address;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public int getRoll() {
 		return roll;
 	}
@@ -26,7 +44,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return "Student [roll=" + roll + ", name=" + name + ", marks=" + marks + "]";
+		return "Student [roll=" + roll + ", name=" + name + ", marks=" + marks + ", address=" + address + "]";
 	}
 	public Student() {
 		super();
