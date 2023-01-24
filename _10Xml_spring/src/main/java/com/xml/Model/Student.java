@@ -8,8 +8,20 @@ public class Student {
 	private int marks;
 	private int totalMarks;
 	
+	private Department d1;
 	
-//	Init method
+	
+	
+	
+    public Department getD1() {
+		return d1;
+	}
+
+	public void setD1(Department d1) {
+		this.d1 = d1;
+	}
+
+	//	Init method
 	public void preMethod() {
 		System.out.println("Pre methods.......");
 	}
@@ -78,7 +90,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [stId=" + stId + ", sName=" + sName + ", address=" + address + ", marks=" + marks
-				+ ", totalMarks=" + totalMarks + "]";
+				+ ", totalMarks=" + totalMarks + ", d1=" + d1 + "]";
 	}
 
 

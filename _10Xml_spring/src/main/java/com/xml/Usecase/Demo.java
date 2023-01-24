@@ -9,8 +9,9 @@ public class Demo {
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("beanScopeContext.xml");
 		Student s = ctx.getBean("s1", Student.class);
+		System.out.println(s);
 		System.out.println(s.calculatePercentage());
 		
 		

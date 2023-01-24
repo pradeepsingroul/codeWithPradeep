@@ -5,6 +5,9 @@ public class Department {
 	private int deptId;
 	private String name;
 	private String address;
+	
+	
+	
 	public int getDeptId() {
 		return deptId;
 	}

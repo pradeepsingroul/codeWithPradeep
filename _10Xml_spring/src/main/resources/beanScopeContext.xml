@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean id="d1" class="com.xml.Model.Department">
+	
+		<property name="deptId" value="100" />
+		<property name="name" value="Nrupul dev" />
+		<property name="address" value="Pune" />
+	
+	</bean>
+	
+	
+	<bean id="s1" class="com.xml.Model.Student" init-method="preMethod" destroy-method="postMethod" autowire="byName">
+	
+		<property name="stId" value="102" />
+		<property name="sName" value="pradeep singroul" />
+		<property name="address" value="Pune" />
+		<property name="totalMarks" value="1000" />
+		<property name="marks" value="922" />
+	
+	</bean>
+	
+	
+</beans>
