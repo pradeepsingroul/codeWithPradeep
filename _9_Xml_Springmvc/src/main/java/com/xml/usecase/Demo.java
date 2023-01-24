@@ -9,7 +9,7 @@ public class Demo {
 
 	public static void main(String[] args) {
 		
-		//Activatting IOC container by using applicationContex
+		//Activating IOC container by using applicationContex
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		
