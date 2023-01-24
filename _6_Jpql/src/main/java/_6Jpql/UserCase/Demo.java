@@ -47,7 +47,8 @@ public class Demo {
 //		String query = "from Department";
 //		String query = "from Department d where d.dName = 'Software Developement'";
 //		String query = "from Department d where d.deptId = 1";
-		String query = "from Department d where d.dName LIKE '%Developement%'";
+//		String query = "from Department d where d.dName LIKE '%Developement%'";
+		String query = "from Department d where d.dName = 'Software Developement'";
 		Query q = em.createQuery(query);
 		List<Department> lst = q.getResultList();
 		lst.forEach(s -> System.out.println(s.getEmployees()));
