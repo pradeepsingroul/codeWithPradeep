@@ -10,9 +10,8 @@ import com.springBoot.Model.Student;
 public class Application {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx =  SpringApplication.run(Application.class, args); // this will returns applicationContext
-		Student s = ctx.getBean("student",Student.class);
-		System.out.println(s.getB());
+		SpringApplication.run(Application.class, args); // this will returns applicationContext
+		
 	}
 
 }
