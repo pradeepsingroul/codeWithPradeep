@@ -8,16 +8,22 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 public class User {
 	
 	@Id
 	private String email;
+	@Pattern(regexp = "^[A-Z][a-z]*",message = "first name must not contins special character")
 	private String firstName;
+	@Pattern(regexp = "^[A-Z][a-z]*",message = "Last name must not contins special character")
 	private String lastName;
+	@Min(value = 12,message = "age must be above 12")
 	private int age;
 	private String gender;
+    @Pattern(regexp = "^[a-zA-Z0-9.\\-\\/+=@_ ]*$",message = "Password must contains special character")
 	private String password;
   
 	

@@ -3,6 +3,8 @@ package com.masai.Model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +25,7 @@ public class Comment {
 	@ManyToOne
 	private Blog blogs;
 	
+	@Autowired
 	@ManyToOne
 	private List<User> users;
 

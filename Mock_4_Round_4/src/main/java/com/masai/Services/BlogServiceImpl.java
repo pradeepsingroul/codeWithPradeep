@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.masai.Exceptions.BlogExceptions;
 import com.masai.Model.Blog;
 import com.masai.Model.Category;
 import com.masai.Repository.BlogRepository;
 
+@Service
 public class BlogServiceImpl implements BlogService{
 	
 	@Autowired
