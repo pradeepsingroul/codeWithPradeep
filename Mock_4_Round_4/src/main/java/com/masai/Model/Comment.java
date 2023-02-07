@@ -21,7 +21,7 @@ public class Comment {
 	
 	
 	@ManyToOne
-	private List<Blog> blogs;
+	private Blog blogs;
 	
 	@ManyToOne
 	private List<User> users;
@@ -50,11 +50,11 @@ public class Comment {
 		this.timeStamp = timeStamp;
 	}
 
-	public List<Blog> getBlogs() {
+	public Blog getBlogs() {
 		return blogs;
 	}
 
-	public void setBlogs(List<Blog> blogs) {
+	public void setBlogs(Blog blogs) {
 		this.blogs = blogs;
 	}
 
@@ -79,7 +79,7 @@ public class Comment {
 		this.timeStamp = timeStamp;
 	}
 
-	public Comment(int commentId, String comment, LocalDateTime timeStamp, List<Blog> blogs, List<User> users) {
+	public Comment(int commentId, String comment, LocalDateTime timeStamp, Blog blogs, List<User> users) {
 		super();
 		this.commentId = commentId;
 		this.comment = comment;

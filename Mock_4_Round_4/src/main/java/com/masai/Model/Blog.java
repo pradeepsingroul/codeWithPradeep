@@ -21,6 +21,14 @@ public class Blog {
 	@OneToOne
 	private User user;
 	
+	public int getBlogId() {
+		return blogId;
+	}
+
+	public void setBlogId(int blogId) {
+		this.blogId = blogId;
+	}
+
 	@OneToMany
 	private List<Comment> comments;
 
