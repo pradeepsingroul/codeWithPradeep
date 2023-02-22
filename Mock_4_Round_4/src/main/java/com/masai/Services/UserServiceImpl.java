@@ -33,22 +33,16 @@ public class UserServiceImpl implements userService{
 	@Autowired
 	private CurruntUserSession curDao; 
 
-	@JsonIgnore
+	
 	@Override
 	public User registerUser(User user) throws UserExceptions {
 		Optional<User> opt = udao.findById(user.getEmail());
-		User u = opt.get();
+		
 		if(opt.isPresent()){
 			throw new UserExceptions("User already present.....");
 		    
 		}else {
 			
-			for(int i =0; i<user.getComments().size(); i++) {
-				user.getComments().get(i).getUsers().add(user);
-			}
-			for(int i =0; i<user.getBlogs().size(); i++) {
-				user.getBlogs().get(i).setUser(user);
-			}
 			return udao.save(user);
 		}
 	}
@@ -68,12 +62,13 @@ public class UserServiceImpl implements userService{
 
 	@Override
 	public List<Blog> getBlogs(String email) throws UserExceptions {
-		Optional<User> opt = udao.findById(email);
-		if(opt.isEmpty()) {
-			throw new UserExceptions("User doesnot exists..........");
-		}else {
-			return opt.get().getBlogs();
-		}
+//		Optional<User> opt = udao.findById(email);
+//		if(opt.isEmpty()) {
+//			throw new UserExceptions("User doesnot exists..........");
+//		}else {
+//			return opt.get().getBlogs();
+//		}
+		return null;
 	}
 
 	@Override

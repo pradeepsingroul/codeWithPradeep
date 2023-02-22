@@ -1,6 +1,7 @@
 package com.masai.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,12 +45,12 @@ public class UserController {
 		return new ResponseEntity<User>(u,HttpStatus.OK);
 	}
 	
-	@GetMapping("/blogs")
-	public ResponseEntity<List<Blog>> getBlogsEntity(@RequestParam("email") String email){
+	@GetMapping("/getMessage")
+	public ResponseEntity<String> getBlogsEntity(){
 	
-		List<Blog> lst = us.getBlogs(email);
-		return new ResponseEntity<List<Blog>>(lst,HttpStatus.OK);
+		return new ResponseEntity<String>("dfgdsfgdsfgdsfgsdfgds:",HttpStatus.OK);
 	}
+	
 	@DeleteMapping("/blogs/{blogId)")
 	public ResponseEntity<Blog> deleteBlogEntity(@RequestParam String email,@PathVariable("blogId") Integer blogId){
 	
@@ -63,7 +64,7 @@ public class UserController {
 		Comment lst = us.deleteComment(email,blogId);
 		return new ResponseEntity<Comment>(lst,HttpStatus.OK);
 	}
-	
+
 	
 	
 	

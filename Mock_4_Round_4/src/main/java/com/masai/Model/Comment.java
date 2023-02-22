@@ -1,10 +1,12 @@
 package com.masai.Model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +27,9 @@ public class Comment {
 	@ManyToOne
 	private Blog blogs;
 	
-	@Autowired
-	@ManyToOne
-	private List<User> users;
+	
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	private List<User> users = new ArrayList<>();
 
 	public int getCommentId() {
 		return commentId;
@@ -61,19 +63,27 @@ public class Comment {
 		this.blogs = blogs;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+//	public List<User> getUsers() {
+//		return users;
+//	}
+//
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
 
 	@Override
 	public String toString() {
 		return "Comment [commentId=" + commentId + ", comment=" + comment + ", timeStamp=" + timeStamp + ", blogs="
-				+ blogs + ", users=" + users + "]";
+				+ blogs + "]";
 	}
+
+	public Comment(int commentId, String comment, LocalDateTime timeStamp, Blog blogs) {
+	super();
+	this.commentId = commentId;
+	this.comment = comment;
+	this.timeStamp = timeStamp;
+	this.blogs = blogs;
+}
 
 	public Comment(int commentId, String comment, LocalDateTime timeStamp) {
 		super();
@@ -82,14 +92,7 @@ public class Comment {
 		this.timeStamp = timeStamp;
 	}
 
-	public Comment(int commentId, String comment, LocalDateTime timeStamp, Blog blogs, List<User> users) {
-		super();
-		this.commentId = commentId;
-		this.comment = comment;
-		this.timeStamp = timeStamp;
-		this.blogs = blogs;
-		this.users = users;
-	}
+	
 
 	public Comment() {
 		super();

@@ -16,23 +16,25 @@ public class User {
 	
 	@Id
 	private String email;
-	@Pattern(regexp = "^[A-Z][a-z]*",message = "first name must not contins special character")
+	
 	private String firstName;
-	@Pattern(regexp = "^[A-Z][a-z]*",message = "Last name must not contins special character")
+	
 	private String lastName;
-	@Min(value = 12,message = "age must be above 12")
+
+	
 	private int age;
+	
 	private String gender;
-    @Pattern(regexp = "^[a-zA-Z0-9.\\-\\/+=@_ ]*$",message = "Password must contains special character")
+   
 	private String password;
   
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Blog> blogs;
-	
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Comment> comments;
+//	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	private List<Blog> blogs;
+//	
+//	
+//	@OneToMany(cascade = CascadeType.ALL)
+//	private List<Comment> comments;
 
 
 	public String getEmail() {
@@ -95,30 +97,30 @@ public class User {
 	}
 
 
-	public List<Blog> getBlogs() {
-		return blogs;
-	}
-
-
-	public void setBlogs(List<Blog> blogs) {
-		this.blogs = blogs;
-	}
-
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+//	public List<Blog> getBlogs() {
+//		return blogs;
+//	}
+//
+//
+//	public void setBlogs(List<Blog> blogs) {
+//		this.blogs = blogs;
+//	}
+//
+//
+//	public List<Comment> getComments() {
+//		return comments;
+//	}
+//
+//
+//	public void setComments(List<Comment> comments) {
+//		this.comments = comments;
+//	}
 
 
 	@Override
 	public String toString() {
 		return "User [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
-				+ ", gender=" + gender + ", password=" + password + ", blogs=" + blogs + ", comments=" + comments + "]";
+				+ ", gender=" + gender + ", password=" + password + "]";
 	}
 
 
@@ -133,18 +135,7 @@ public class User {
 	}
 
 
-	public User(String email, String firstName, String lastName, int age, String gender, String password,
-			List<Blog> blogs, List<Comment> comments) {
-		super();
-		this.email = email;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.gender = gender;
-		this.password = password;
-		this.blogs = blogs;
-		this.comments = comments;
-	}
+	
 
 
 	public User() {
