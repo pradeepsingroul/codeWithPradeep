@@ -24,7 +24,7 @@ public class GlobalExceptions {
 		ex.setTimeStamp(LocalDateTime.now());
 		ex.setMessage(e.getMessage());
 		
-		return new ResponseEntity<ExcetionDetails>(ex, HttpStatus.BAD_GATEWAY);
+		return new ResponseEntity<ExcetionDetails>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
 	

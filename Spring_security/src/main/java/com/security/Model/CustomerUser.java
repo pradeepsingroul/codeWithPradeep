@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,20 +15,28 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
-public class User {
+public class CustomerUser {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	
-	@Pattern(regexp="^[a-zA-Z]",message="name should not contain spcial character")  
 	private String name;
 	
 	@Email(message = "email should be in email format")
+	@Column(unique = true)
 	private String email;
 	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	@JsonProperty(access = Access.WRITE_ONLY)
-	@Pattern(regexp="^[a-zA-Z0-9]{3}",message="length must be 3")  
 	private String password;
 	
 	
@@ -81,7 +90,7 @@ public class User {
 	}
 
 
-	public User(Integer userId, @Email String email, String password, Address address) {
+	public CustomerUser(Integer userId, @Email String email, String password, Address address) {
 		super();
 		this.userId = userId;
 		this.email = email;
@@ -90,7 +99,7 @@ public class User {
 	}
 
 
-	public User() {
+	public CustomerUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

@@ -20,8 +20,8 @@ public class Address {
 	
 	private String state;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "address")
-	private List<User> users;
+	@OneToMany
+	private List<CustomerUser> users;
 
 	public Integer getAddressId() {
 		return addressId;
@@ -47,11 +47,11 @@ public class Address {
 		this.state = state;
 	}
 
-	public List<User> getUsers() {
+	public List<CustomerUser> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<CustomerUser> users) {
 		this.users = users;
 	}
 
@@ -61,7 +61,7 @@ public class Address {
 				+ "]";
 	}
 
-	public Address(Integer addressId, String cityName, String state, List<User> users) {
+	public Address(Integer addressId, String cityName, String state, List<CustomerUser> users) {
 		super();
 		this.addressId = addressId;
 		this.cityName = cityName;
