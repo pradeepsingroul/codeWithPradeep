@@ -1,5 +1,6 @@
 package com.springBoot.Controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,12 @@ public class StudentController {
 	
 	@PutMapping("/getStudent")
 	public Student students2(@RequestBody Student s) {
+		s.setMarks(s.getMarks()+50);
+		return s;
+	}
+
+	@DeleteMapping("/getStudent")
+	public Student students3(@RequestBody Student s) {
 		s.setMarks(s.getMarks()+50);
 		return s;
 	}
