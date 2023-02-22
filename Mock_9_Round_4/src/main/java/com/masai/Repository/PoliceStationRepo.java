@@ -1,9 +1,13 @@
 package com.masai.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.masai.Exceptions.PoliceExceptions;
+import com.masai.model.PoliceStation;
 
-public interface PoliceStationRepo extends JpaRepository<PoliceExceptions, Integer>{
+
+
+@Repository
+public interface PoliceStationRepo extends JpaRepository<PoliceStation, Integer>{
 
 }

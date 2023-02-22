@@ -21,7 +21,7 @@ public class GlobalException {
 
 	
 	@ExceptionHandler(FIRExceptions.class)
-	public ResponseEntity<MyExceptionDetails> userException(FIRExceptions fir, WebRequest we){
+	public ResponseEntity<MyExceptionDetails> firExceptions(FIRExceptions fir, WebRequest we){
 		
 		MyExceptionDetails me = new MyExceptionDetails();
 		me.setTimeStamp(LocalDateTime.now());
@@ -33,7 +33,7 @@ public class GlobalException {
 	}
 	
 	@ExceptionHandler(UserExceptions.class)
-	public ResponseEntity<MyExceptionDetails> blogException(UserExceptions user, WebRequest we){
+	public ResponseEntity<MyExceptionDetails> userExceptions(UserExceptions user, WebRequest we){
 		
 		MyExceptionDetails me = new MyExceptionDetails();
 		me.setTimeStamp(LocalDateTime.now());
@@ -44,7 +44,7 @@ public class GlobalException {
 		
 	}
 	@ExceptionHandler(PoliceExceptions.class)
-	public ResponseEntity<MyExceptionDetails> blogException(PoliceExceptions police, WebRequest we){
+	public ResponseEntity<MyExceptionDetails> policeExceptions(PoliceExceptions police, WebRequest we){
 		
 		MyExceptionDetails me = new MyExceptionDetails();
 		me.setTimeStamp(LocalDateTime.now());
@@ -54,8 +54,9 @@ public class GlobalException {
 		return new ResponseEntity<MyExceptionDetails>(me,HttpStatus.BAD_GATEWAY);
 		
 	}
+	
 	@ExceptionHandler(PoliceStationException.class)
-	public ResponseEntity<MyExceptionDetails> blogException(PoliceStationException pStation, WebRequest we){
+	public ResponseEntity<MyExceptionDetails> policeStationException(PoliceStationException pStation, WebRequest we){
 		
 		MyExceptionDetails me = new MyExceptionDetails();
 		me.setTimeStamp(LocalDateTime.now());
@@ -89,16 +90,16 @@ public class GlobalException {
 		return new ResponseEntity<MyExceptionDetails>(me,HttpStatus.BAD_GATEWAY);
 		
 	}
-	@ExceptionHandler(NoHandlerFoundException.class)
-	public ResponseEntity<MyExceptionDetails> noHandlerEx(NoHandlerFoundException nh, WebRequest we){
-		
-		MyExceptionDetails me = new MyExceptionDetails();
-		me.setTimeStamp(LocalDateTime.now());
-		me.setMessage(nh.getMessage());
-		me.setDescription(we.getDescription(true));
-		
-		return new ResponseEntity<MyExceptionDetails>(me,HttpStatus.BAD_GATEWAY);
-		
-	}
+//	@ExceptionHandler(NoHandlerFoundException.class)
+//	public ResponseEntity<MyExceptionDetails> noHandlerEx(NoHandlerFoundException nh, WebRequest we){
+//		
+//		MyExceptionDetails me = new MyExceptionDetails();
+//		me.setTimeStamp(LocalDateTime.now());
+//		me.setMessage(nh.getMessage());
+//		me.setDescription(we.getDescription(true));
+//		
+//		return new ResponseEntity<MyExceptionDetails>(me,HttpStatus.BAD_GATEWAY);
+//		
+//	}
 	
 }

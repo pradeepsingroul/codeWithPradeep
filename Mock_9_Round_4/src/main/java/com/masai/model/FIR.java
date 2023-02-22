@@ -3,11 +3,15 @@ package com.masai.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
+@Entity
 public class FIR {
 	
+	@Id
 	private Integer firId;
 	
 	private String crimeDetails;

@@ -2,9 +2,11 @@ package com.masai.model;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+@Entity
 public class Police {
 	
 	@Id
@@ -22,9 +24,8 @@ public class Police {
 	@OneToMany
 	private List<FIR> casesClosed;
 
-	public Integer getPoliceId() {
-		return policeId;
-	}
+		
+	
 
 	public void setPoliceId(Integer policeId) {
 		this.policeId = policeId;

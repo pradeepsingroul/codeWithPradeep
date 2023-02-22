@@ -10,5 +10,14 @@ public interface UserService {
 	    public User registerUser(User user) throws UserExceptions ;
 		
 		public User loginUser(LoginDTO user) throws UserExceptions;
+		
+//		public User loginUser(LoginDTO user) throws UserExceptions;
 
+		
+		
+		
+		
+		
+		
+		
 }
