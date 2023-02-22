@@ -12,9 +12,9 @@ public class Demo {
 	public static void main(String[] args) {
 		
 		ApplicationContext ctx= new AnnotationConfigApplicationContext(configurationClass.class);
-		Student c = ctx.getBean("student",Student.class);
-		System.out.println(c);
-		System.out.println(c.getCourse());
+		
+		Student s = ctx.getBean("student",Student.class);
+		s.getCourses().forEach(c -> System.out.println(c));
 
 		
 	}

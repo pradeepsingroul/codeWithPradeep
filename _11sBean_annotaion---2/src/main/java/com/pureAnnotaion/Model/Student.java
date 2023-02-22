@@ -1,5 +1,7 @@
 package com.pureAnnotaion.Model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -8,45 +10,57 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class Student {
 	
+	
+	private int sId;
 	private String sName;
 	private String address;
 	
 	@Autowired(required = true)
-	private Course course;
-	
-	
+	private List<Course> courses;
+
 	public String getsName() {
 		return sName;
 	}
+
 	public void setsName(String sName) {
 		this.sName = sName;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Course getCourse() {
-		return course;
+
+	public List<Course> getCourses() {
+		return courses;
 	}
-	public void setCourse(Course course) {
-		this.course = course;
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
+
 	@Override
 	public String toString() {
-		return "Student [sName=" + sName + ", address=" + address + ", course=" + course + "]";
+		return "Student [sName=" + sName + ", address=" + address + ", courses=" + courses + "]";
 	}
-	public Student(String sName, String address, Course course) {
+
+	public Student(String sName, String address, List<Course> courses) {
 		super();
 		this.sName = sName;
 		this.address = address;
-		this.course = course;
+		this.courses = courses;
 	}
+
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
 	
 	
 	
