@@ -1,16 +1,15 @@
 package com.FrightBox.Services;
 
 import com.FrightBox.Exceptions.WeatherExceptions;
-import com.FrightBox.Model.WeatherDetails;
+import com.FrightBox.Model.Weather;
 
-import javax.imageio.spi.RegisterableService;
 import java.util.Optional;
 
 public interface WeatherDetailsService {
 
-    WeatherDetails registerWeatherDetails(WeatherDetails weatherDetails) throws WeatherExceptions;
+    Weather registerWeatherDetails(Weather weatherDetails) throws WeatherExceptions;
 
-    Optional<WeatherDetails> getWeatherDetails(Integer pincode) throws WeatherExceptions;
+    Optional<Weather> getWeatherDetails(Integer pincode) throws WeatherExceptions;
 
 
 }

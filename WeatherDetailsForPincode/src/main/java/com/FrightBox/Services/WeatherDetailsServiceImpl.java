@@ -1,8 +1,8 @@
 package com.FrightBox.Services;
 
 import com.FrightBox.Exceptions.WeatherExceptions;
-import com.FrightBox.Model.WeatherDetails;
-import com.FrightBox.Repository.WeatherDetailsRepository;
+import com.FrightBox.Model.Weather;
+import com.FrightBox.Repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +11,17 @@ import java.util.Optional;
 @Service
 public class WeatherDetailsServiceImpl implements WeatherDetailsService{
     @Autowired
-    private WeatherDetailsRepository wDao;
+    private WeatherRepository wDao;
 
 
     @Override
-    public WeatherDetails registerWeatherDetails(WeatherDetails weatherDetails) throws WeatherExceptions {
+    public Weather registerWeatherDetails(Weather weatherDetails) throws WeatherExceptions {
         return wDao.save(weatherDetails);
     }
 
     @Override
-    public Optional<WeatherDetails> getWeatherDetails(Integer pincode) throws WeatherExceptions {
-        Optional<WeatherDetails> opt = wDao.findById(pincode);
+    public Optional<Weather> getWeatherDetails(Integer pincode) throws WeatherExceptions {
+        Optional<Weather> opt = wDao.findById(pincode);
         return opt;
     }
 }
