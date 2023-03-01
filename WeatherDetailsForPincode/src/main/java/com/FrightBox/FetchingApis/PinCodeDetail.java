@@ -21,19 +21,10 @@ import java.time.ZoneOffset;
 @AllArgsConstructor
 public class PinCodeDetail {
 
-     static private JSONObject weatherObject; //we can say this is the parent object of weather details
-     static  private JSONObject main; // subObject of weatherObject it will help to utilize our execution
-     static  private JSONObject sys;// subObject of weatherObject it will help to utilize our execution
-     static  private JSONObject Coord;// subObject of weatherObject it will help to utilize our execution
-     static  private JSONObject wind;// subObject of weatherObject it will help to utilize our execution
+    static private JSONObject weatherObject; //we can say this is the parent object of weather details
 
 
-
-
-
-
-
-    public static Location getLocationDetails(Integer pincode, LocalDate dateStamp){  // trying to find the location via pincode
+    public static Location getLocationDetails(Integer pincode,LocalDate dateStamp){  // trying to find the location via pincode
 
         JSONObject pincodeDetails = null; //creating the null JSONObject to store the data which i will get from this api.
 
@@ -49,12 +40,14 @@ public class PinCodeDetail {
             e.printStackTrace();
         }
 
+
         Location weatherLocation = new Location(); // just creating the Location option and setting the value.
         weatherLocation.setPinCode(pincode);
         weatherLocation.setDetail((String)pincodeDetails.get("formatted"));
         weatherLocation.setUrl((String) pincodeDetails.getJSONObject("annotations").getJSONObject("OSM").get("url"));
         weatherLocation.setLongitude((BigDecimal) pincodeDetails.getJSONObject("geometry").get("lng"));
         weatherLocation.setLattiTude((BigDecimal) pincodeDetails.getJSONObject("geometry").get("lat"));
+        weatherLocation.setDateStamp(dateStamp);
 
         return weatherLocation;// just returnig the lcoation Object.
 
@@ -62,8 +55,6 @@ public class PinCodeDetail {
     }
 
     public static Weather getWeather(BigDecimal lat, BigDecimal lon, LocalDate dateStamp){ // trying to get weather data from openweather Api
-
-
 
         LocalDateTime localDateTime = dateStamp.atStartOfDay(); //in next 2 here i am converting the Date into unixTime because this api doen't accept date as argument.
         long unixTime = localDateTime.toEpochSecond(ZoneOffset.UTC);
@@ -81,20 +72,26 @@ public class PinCodeDetail {
              e.printStackTrace();
         }
 
+
+        JSONObject main = returnMainObjectFromWeather(); ; // subObject of weatherObject it will help to optimize our execution
+        JSONObject sys =  returnSysObjectFromWeather();;// subObject of weatherObject it will help to optimize our execution
+        JSONObject wind = returnWindObjectFromWeather(); // subObject of weatherObject it will help to optimize our execution
+
+
         Weather weather = new Weather(); // just creating an object of weather and setting the values;
+
         weather.setTemperature((BigDecimal) main.get("temp"));
         weather.setTemperature_max((BigDecimal) main.get("temp_max"));
         weather.setTemperature_min((BigDecimal) main.get("temp_min"));
         weather.setHumidity((Integer) main.get("humidity"));
         weather.setPressure((Integer) main.get("pressure"));
-        weather.setSea_level((Integer) main.get("sea_level"));
         weather.setCountry((String) sys.get("country"));
         weather.setSunset((Integer) sys.get("sunset"));
         weather.setSunrise((Integer) sys.get("sunrise"));
         weather.setWindDirection((Integer) wind.get("deg"));
         weather.setWindSpeed((BigDecimal) wind.get("speed"));
-        weather.setWindGust((BigDecimal) wind.get("gust"));
         weather.setCloud((String) weatherObject.getJSONArray("weather").getJSONObject(0).get("description"));
+
 
         return weather; // returning the weather object
     }
@@ -102,20 +99,16 @@ public class PinCodeDetail {
 
 
 
-    public static  void returnMainObjectFromWeather() throws  JSONException{ // here getting the main object ehich is inside the weatherObject it will help to avoid repeatedely calling method
-        main  = weatherObject.getJSONObject("main");
+    public static  JSONObject returnMainObjectFromWeather() throws  JSONException{ // here getting the main object ehich is inside the weatherObject it will help to avoid repeatedely calling method
+        return weatherObject.getJSONObject("main");
     }
 
-    public static  void returnSysObjectFromWeather() throws  JSONException{// here getting the sys object ehich is inside the weatherObject it will help to avoid repeatedely calling method
-        sys = weatherObject.getJSONObject("sys");
+    public static  JSONObject returnSysObjectFromWeather() throws  JSONException{// here getting the sys object ehich is inside the weatherObject it will help to avoid repeatedely calling method
+        return weatherObject.getJSONObject("sys");
     }
 
-    public static  void returnCoordObjectFromWeather() throws  JSONException{// here getting the coord object ehich is inside the weatherObject it will help to avoid repeatedely calling method
-        Coord = weatherObject.getJSONObject("coord");
-    }
-
-    public static  void returnWindObjectFromWeather() throws  JSONException{// here getting the wind object ehich is inside the weatherObject it will help to avoid repeatedely calling method
-        wind = weatherObject.getJSONObject("wind");
+    public static  JSONObject returnWindObjectFromWeather() throws  JSONException{// here getting the wind object ehich is inside the weatherObject it will help to avoid repeatedely calling method
+        return weatherObject.getJSONObject("wind");
     }
 
 

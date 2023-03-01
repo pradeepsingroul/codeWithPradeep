@@ -1,15 +1,17 @@
 package com.FrightBox.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.json.JSONObject;
 
 import java.math.BigDecimal;
+
 
 @Entity
 @Data
@@ -19,13 +21,9 @@ import java.math.BigDecimal;
 public class Weather {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
+    private Integer pin;
     private String cloud;
-
     private BigDecimal temperature;
-
     private BigDecimal temperature_min;
 
     private BigDecimal temperature_max;
@@ -34,13 +32,9 @@ public class Weather {
 
     private Integer humidity;
 
-    private Integer sea_level;
-
     private BigDecimal windSpeed;
 
     private Integer WindDirection;
-
-    private BigDecimal windGust;
 
     private Integer sunrise;
 
@@ -49,7 +43,6 @@ public class Weather {
     private String country;
 
     private String url;
-
 
 
 

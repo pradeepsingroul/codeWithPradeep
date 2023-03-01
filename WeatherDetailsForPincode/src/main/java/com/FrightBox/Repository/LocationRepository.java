@@ -9,6 +9,6 @@ import java.time.LocalDate;
 
 @Repository
 public interface LocationRepository extends JpaRepository<Location,Integer> {
-    Location findByPincodeAndDatestamp(Integer pincode, LocalDate dateStamo) throws WeatherLocationExceptions;
+
 
 }
