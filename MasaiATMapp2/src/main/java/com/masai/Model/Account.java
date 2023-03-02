@@ -2,8 +2,10 @@ package com.masai.Model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 @Entity
 public class Account {
 	
@@ -17,6 +19,9 @@ public class Account {
 	private Integer balance;
 	
 	private String bank;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private User user;
 
 	public String getAccountNumber() {
 		return accountNumber;
